@@ -1,4 +1,4 @@
-# Hive, Presto and Hadoop HDFS for Big Data Analytics
+# Docker of Hive, Presto and Hadoop HDFS
 
 The idea of this repo is to provide some simple step by step guide to set up an isolated test/dev version Hive & PrestoDB locally and start playing around with it :-).
 This set up is totally NOT recommended for production workloads.
