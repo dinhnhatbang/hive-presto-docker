@@ -114,3 +114,4 @@ $ docker volume rm hive-presto-tutorial_datanode hive-presto-tutorial_namenode
 - Hadoop docker compose: https://github.com/big-data-europe/docker-hadoop
 - Presto docker: https://github.com/IBM/docker-prestodb 
 - HIVE-PRESTODB TUTORIAL: https://github.com/jordicenzano/hive-presto-tutorial
+- A twitter crawler in Python: https://github.com/bianjiang/tweetf0rm
