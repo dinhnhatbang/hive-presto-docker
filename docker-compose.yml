@@ -1,0 +1,72 @@
+version: "3"
+
+services:
+  namenode:
+    container_name: namenode
+    image: hadoop/namenode
+    volumes:
+      - namenode:/hadoop/dfs/name
+    environment:
+      - CLUSTER_NAME=test
+    env_file:
+      - ./hadoop-hive.env
+    ports:
+      - "9870:9870"
+  datanode:
+    container_name: datanode
+    image: hadoop/datanode
+    volumes:
+      - datanode:/hadoop/dfs/data
+    env_file:
+      - ./hadoop-hive.env
+    environment:
+      SERVICE_PRECONDITION: "namenode:9870"
+    ports:
+      - "9864:9864"
+  hive-server:
+    container_name: hive-server
+    image: hive
+    env_file:
+      - ./hadoop-hive.env
+    environment:
+      SERVICE_PRECONDITION: "hive-metastore:9083"
+    volumes:
+      - ./data:/data
+    ports:
+      - "10000:10000"
+  hive-metastore:
+    container_name: hive-metastore
+    image: hive
+    env_file:
+      - ./hadoop-hive.env
+    command: /opt/hive/bin/hive --service metastore
+    environment:
+      SERVICE_PRECONDITION: "namenode:9870 datanode:9864 mysql:3306"
+    ports:
+      - "9083:9083"
+  mysql:
+    container_name: mysql
+    image: mysql:5.7.25
+    environment:
+      MYSQL_ROOT_PASSWORD: "root"
+    volumes:
+      - ./mysql:/var/lib/mysql
+    ports:
+      - "3306:3306"
+  presto-coordinator:
+    container_name: presto-coordinator
+    image: prestodb
+    ports:
+      - "8080:8080"
+  presto-worker:
+    container_name: presto-worker
+    image: prestodb
+    volumes:
+      - ./prestodb/worker/etc:/home/presto/etc
+  crawler:
+    container_name: crawler
+    image: crawler
+    tty: true
+volumes:
+  namenode:
+  datanode:

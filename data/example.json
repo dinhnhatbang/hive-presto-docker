@@ -1,0 +1,8 @@
+{"ts":1520318907,"device":1,"metric":"p","value":100}
+{"ts":1520318908,"device":2,"metric":"p","value":110}
+{"ts":1520318909,"device":1,"metric":"v","value":8}
+{"ts":1520318910,"device":2,"metric":"v","value":9}
+{"ts":1520318911,"device":1,"metric":"p","value":120}
+{"ts":1520318912,"device":2,"metric":"p","value":140}
+{"ts":1520318913,"device":1,"metric":"v","value":10}
+{"ts":1520318914,"device":2,"metric":"v","value":11}
