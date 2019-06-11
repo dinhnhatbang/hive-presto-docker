@@ -10,24 +10,13 @@ First of all we need to clone this repo:
 $ git clone git@github.com:dinhnhatbang/hive-presto-tutorial.git
 $ cd hive-presto-tutorial
 $ make
+$ make install
 ```
 
 The first step is to build the docker images and start the cluster based on those images.
 To do that we'll execute the following command **from the root of this project**(*):
 ```
 $ docker-compose up -d
-```
-After that we will create initial tables of hive metastore:
-```
-$ docker-compose exec hive-server bash
-```
-Run script for create initial tables of MySQL:
-```
-# /opt/hive/bin/schematool -dbType mysql -initSchema
-```
-Exit and restart again of **hive-metastore**
-```
-$ docker-compose up -d hive-metastore
 ```
 Checking again of **docker-compose** to make sure all services are running:
 ```
