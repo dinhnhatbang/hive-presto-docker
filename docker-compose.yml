@@ -2,7 +2,6 @@ version: "3"
 
 services:
   namenode:
-    container_name: namenode
     image: hadoop/namenode
     volumes:
       - namenode:/hadoop/dfs/name
@@ -13,7 +12,6 @@ services:
     ports:
       - "9870:9870"
   datanode:
-    container_name: datanode
     image: hadoop/datanode
     volumes:
       - datanode:/hadoop/dfs/data
@@ -24,7 +22,6 @@ services:
     ports:
       - "9864:9864"
   hive-server:
-    container_name: hive-server
     image: hive
     env_file:
       - ./hadoop-hive.env
@@ -35,7 +32,6 @@ services:
     ports:
       - "10000:10000"
   hive-metastore:
-    container_name: hive-metastore
     image: hive
     env_file:
       - ./hadoop-hive.env
@@ -45,7 +41,6 @@ services:
     ports:
       - "9083:9083"
   mysql:
-    container_name: mysql
     image: mysql:5.7.25
     environment:
       MYSQL_ROOT_PASSWORD: "root"
@@ -54,19 +49,25 @@ services:
     ports:
       - "3306:3306"
   presto-coordinator:
-    container_name: presto-coordinator
     image: prestodb
     ports:
       - "8080:8080"
   presto-worker:
-    container_name: presto-worker
     image: prestodb
     volumes:
       - ./prestodb/worker/etc:/home/presto/etc
   crawler:
-    container_name: crawler
-    image: crawler
+    image: python
+    volumes:
+      - ./crawler/src:/opt/crawler
     tty: true
+  application:
+    image: python
+    volumes:
+      - ./application/src:/opt/application
+    tty: true
+    ports:
+      - "80:80"
 volumes:
   namenode:
   datanode:

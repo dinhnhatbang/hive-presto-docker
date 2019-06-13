@@ -4,5 +4,3 @@ RUN apt-get update
 RUN curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py
 RUN python3 get-pip.py
 RUN pip install virtualenv
-
-COPY src/ /opt/crawler/
