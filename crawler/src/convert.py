@@ -7,7 +7,13 @@ import pyarrow.parquet as pq
 input_file = sys.argv[1]
 output_dir = sys.argv[2]
 
-data_frame = pd.read_csv(filepath_or_buffer=input_file)
+data_frame = pd.read_csv(
+		filepath_or_buffer=input_file,
+		dtype={
+			time: str,
+			temp: int
+		}
+)
 
 table = pa.Table.from_pandas(df=data_frame)
 
