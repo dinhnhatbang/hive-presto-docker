@@ -24,9 +24,9 @@ RUN wget https://archive.apache.org/dist/hive/hive-$HIVE_VERSION/apache-hive-$HI
 	mv apache-hive-$HIVE_VERSION-bin hive && \
 	wget https://jdbc.postgresql.org/download/postgresql-9.4.1212.jar -O $HIVE_HOME/lib/postgresql-jdbc.jar && \
 	rm apache-hive-$HIVE_VERSION-bin.tar.gz && \
-	wget http://www.java2s.com/Code/JarDownload/mysql/mysql-connector-java-commercial-5.1.7-bin.jar.zip && \
- 	unzip mysql-connector-java-commercial-5.1.7-bin.jar.zip && \
- 	cp mysql-connector-java-commercial-5.1.7-bin.jar  $HIVE_HOME/lib/
+	wget http://www.java2s.com/Code/JarDownload/mysql/mysql-connector-java-commercial-5.1.9-bin.jar.zip && \
+ 	unzip mysql-connector-java-commercial-5.1.9-bin.jar.zip && \
+ 	cp mysql-connector-java-commercial-5.1.9-bin.jar  $HIVE_HOME/lib/
 
 RUN wget http://www.congiu.net/hive-json-serde/1.3.8/hdp23/json-serde-1.3.8-jar-with-dependencies.jar && \
 	cp json-serde-1.3.8-jar-with-dependencies.jar $HIVE_HOME/lib/
