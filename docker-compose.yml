@@ -60,6 +60,7 @@ services:
     image: python
     volumes:
       - ./crawler/src:/opt/crawler
+      - ./data:/data
     tty: true
   application:
     image: python
