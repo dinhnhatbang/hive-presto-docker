@@ -21,12 +21,14 @@ RUN apt-get update && apt-get install -y wget procps unzip
 
 RUN wget https://archive.apache.org/dist/hive/hive-$HIVE_VERSION/apache-hive-$HIVE_VERSION-bin.tar.gz && \
 	tar -xzvf apache-hive-$HIVE_VERSION-bin.tar.gz && \
-	mv apache-hive-$HIVE_VERSION-bin hive && \
-	wget https://jdbc.postgresql.org/download/postgresql-9.4.1212.jar -O $HIVE_HOME/lib/postgresql-jdbc.jar && \
-	rm apache-hive-$HIVE_VERSION-bin.tar.gz && \
-	wget http://www.java2s.com/Code/JarDownload/mysql/mysql-connector-java-commercial-5.1.9-bin.jar.zip && \
- 	unzip mysql-connector-java-commercial-5.1.9-bin.jar.zip && \
- 	cp mysql-connector-java-commercial-5.1.9-bin.jar  $HIVE_HOME/lib/
+	mv apache-hive-$HIVE_VERSION-bin hive
+
+RUN wget https://jdbc.postgresql.org/download/postgresql-9.4.1212.jar -O $HIVE_HOME/lib/postgresql-jdbc.jar && \
+	rm apache-hive-$HIVE_VERSION-bin.tar.gz
+
+RUN wget http://www.java2s.com/Code/JarDownload/mysql/mysql-connector-java-bin.jar.zip && \
+ 	unzip mysql-connector-java-bin.jar.zip && \
+ 	cp mysql-connector-java-bin.jar  $HIVE_HOME/lib/
 
 RUN wget http://www.congiu.net/hive-json-serde/1.3.8/hdp23/json-serde-1.3.8-jar-with-dependencies.jar && \
 	cp json-serde-1.3.8-jar-with-dependencies.jar $HIVE_HOME/lib/
