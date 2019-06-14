@@ -7,10 +7,9 @@ This set up is totally NOT recommended for production workloads.
 Because our purpose is just to experiment, to accelerate the set up we could use docker images (to be accurate, docker-compose).
 First of all we need to clone this repo:
 ```
-$ git clone git@github.com:dinhnhatbang/hive-presto-tutorial.git
+$ git clone git@github.com:dinhnhatbang/hive-presto-docker.git
 $ cd hive-presto-tutorial
 $ make
-$ make install
 ```
 The first step is to build the docker images and start the cluster based on those images.
 To do that we'll execute the following command **from the root of this project**(*):
@@ -106,7 +105,7 @@ We should see something like:
 Stop the docker containers and remove volumes by doing:
 ```
 $ docker-compose down
-$ docker volume rm hive-presto-tutorial_datanode hive-presto-tutorial_namenode
+$ docker volume rm hive-presto-docker_datanode hive-presto-docker_namenode
 ```
 
 ## References
