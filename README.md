@@ -79,14 +79,15 @@ We should see the list of temperatures.
 
 ### Querying in presto
 
-Download presto client: https://prestosql.io/docs/current/installation/cli.html
+Download presto client from: https://prestodb.io/docs/current/installation/cli.html
+Rename it to just "presto" and make it executable as described on that page.
 
-Now lets execute a presto client:
+Now let's execute the presto client:
 ```
-cd presto_client
-./presto.jar --server localhost:8080 --catalog hive --schema default
+./presto --server localhost:8080 --catalog hive --schema default
 ```
-Finally from that shell we can query that table, for instance:
+
+Finally, from that shell we can query that table, for instance:
 ```
 # select * from horlytemp where temp > 80;
 ```
